@@ -1,0 +1,19 @@
+services:
+  db_students_test:
+    container_name: db_students_test
+    image: db_students_test_image
+    restart: always
+    ports:
+      - 1234:5432
+    env_file:
+      - ./back-end/.env.test
+  node_students_app:
+    container_name: node_students_app
+    image: node_students_app_image
+    build: ./back-end
+    ports: 
+      - 5000:5000
+    depends_on:
+      - db_students_test
+    env_file:
+      - ./back-end/.env.test 
