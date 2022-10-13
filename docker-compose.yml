@@ -38,5 +38,6 @@ services:
       - node_students_app
       - react_students_app
 volumes:
-  build_react
-  pg_students
+  pg_students:
+  build_react:
+
