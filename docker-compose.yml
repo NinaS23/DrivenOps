@@ -12,7 +12,6 @@ services:
   node_students_app:
     container_name: node_students_app
     build: ./back-end
-    image: node_students_app_image
     ports:
       - 5000:5000
     depends_on:
@@ -22,13 +21,11 @@ services:
   react_students_app:
     container_name: react_students_app
     build: ./front-end
-    image: react_students_app_image
     volumes:
       - build_react:/var/www/html
   nginx_app:
     container_name: nginx_app
     build: ./nginx
-    image: nginx_app_image
     ports:
       - 80:80
     volumes:
